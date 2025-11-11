@@ -58,6 +58,9 @@ roboto_memory.json
 # QIP-1 quantum handshake reports and visualizations
 qip1_reports/
 
+# QIP-2 GHZ ascension reports and visualizations
+qip2_reports/
+
 # Database files
 *.db
 *.sqlite
