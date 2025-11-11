@@ -617,6 +617,43 @@ def license_agreement():
     """Display Software License Agreement page"""
     return render_template('license.html')
 
+@app.route('/health')
+def health_check():
+    """Health check endpoint for deployment monitoring"""
+    return jsonify({
+        "status": "healthy",
+        "service": "Roboto SAI",
+        "timestamp": datetime.now().isoformat()
+    }), 200
+
+@app.route('/readiness')
+def readiness_check():
+    """Readiness check endpoint - verifies critical systems are operational"""
+    checks = {
+        "app": True,
+        "database": database_available,
+        "timestamp": datetime.now().isoformat()
+    }
+    
+    # Check if we can access the database
+    if database_available:
+        try:
+            from sqlalchemy import text
+            with db.engine.connect() as conn:
+                conn.execute(text("SELECT 1"))
+            checks["database_connection"] = True
+        except Exception as e:
+            checks["database_connection"] = False
+            checks["database_error"] = str(e)
+    
+    all_ready = checks.get("app", False) and (checks.get("database_connection", True) if database_available else True)
+    status_code = 200 if all_ready else 503
+    
+    return jsonify({
+        "status": "ready" if all_ready else "not_ready",
+        "checks": checks
+    }), status_code
+
 @app.route('/api/chat_history')
 def get_chat_history():
     """Get chat history - works with or without authentication"""

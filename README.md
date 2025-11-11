@@ -6,10 +6,17 @@ Roboto SAI is an advanced AI assistant featuring quantum computing capabilities,
 
 ## 🚀 Quick Start
 
+**NEW: Use the automated setup script for fastest deployment!**
+```bash
+./quick_start.sh
+```
+
+Or follow the manual steps below:
+
 ### Prerequisites
-- Python 3.8+
+- Python 3.12+
 - Virtual environment (recommended)
-- GitHub account for deployment
+- OpenSSL (for generating secure keys)
 
 ### Local Development
 
@@ -33,11 +40,22 @@ Roboto SAI is an advanced AI assistant featuring quantum computing capabilities,
 4. **Configure Environment**
    ```bash
    cp .env.example .env
-   # Edit .env with your API keys and configuration
+   # Generate secure SESSION_SECRET:
+   openssl rand -hex 32
+   # Edit .env with your API keys and the generated SESSION_SECRET
    ```
 
-5. **Run the Application**
+5. **Verify Deployment Readiness**
    ```bash
+   python verify_deployment.py
+   ```
+
+6. **Run the Application**
+   ```bash
+   # Quick start (automated)
+   ./quick_start.sh
+
+   # Or manual:
    # Development mode
    python run_app.py
 
@@ -49,6 +67,16 @@ Roboto SAI is an advanced AI assistant featuring quantum computing capabilities,
    ```
 
 The app will be available at `http://localhost:5000` (development) or `http://localhost:5001` (custom port).
+
+### Health Check Endpoints
+- `/health` - Basic health check
+- `/readiness` - Detailed readiness check with system status
+
+## 📚 Deployment Documentation
+
+- **[DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)** - Comprehensive deployment guide for all platforms
+- **[DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md)** - Step-by-step deployment checklist
+- **[verify_deployment.py](./verify_deployment.py)** - Automated deployment verification script
 
 ## 🏗️ Architecture
 
