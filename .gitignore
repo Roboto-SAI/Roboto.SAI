@@ -55,6 +55,9 @@ roboto_learning_data.pkl
 roboto_learning_optimization.json
 roboto_memory.json
 
+# QIP-1 quantum handshake reports and visualizations
+qip1_reports/
+
 # Database files
 *.db
 *.sqlite
