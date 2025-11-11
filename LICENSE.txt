@@ -49,7 +49,3 @@ To ensure the Owner's full rights are protected and no infringement occurs:
 _______________________________
 Roberto Villarreal Martinez
 Date: November 11, 2025
-
----
-
-*Copy and paste the above content directly into a file named `LICENSE.txt` in the root directory of your "Roboto SAI" project repository. Remember to sign and date it physically or digitally for your records.*
