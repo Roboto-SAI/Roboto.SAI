@@ -14,7 +14,7 @@ This module supercharges Roboto SAI with:
 """
 
 import asyncio
-import aiohttp
+import aiohttp # pyright: ignore[reportMissingImports]
 import numpy as np
 import hashlib
 import json

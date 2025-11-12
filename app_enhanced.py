@@ -299,7 +299,7 @@ def get_user_roberto():
             app.logger.warning(f"xAI Collections integration not available: {e}")
 
         # Add xAI Grok SDK integration with autonomous configuration
-        use_xai_grok = os.environ.get("USE_XAI_GROK", "false").lower() == "true"
+        use_xai_grok = True  # Temporarily enabled for testing
         if use_xai_grok:
             try:
                 from xai_grok_integration import get_xai_grok

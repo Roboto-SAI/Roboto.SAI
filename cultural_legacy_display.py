@@ -5,7 +5,7 @@
 import pygame # pyright: ignore[reportMissingImports]
 import os
 from dotenv import load_dotenv
-from cryptography.fernet import Fernet
+from cryptography.fernet import Fernet # pyright: ignore[reportMissingImports]
 import math
 import json
 from datetime import datetime

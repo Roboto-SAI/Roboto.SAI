@@ -12,7 +12,7 @@ from typing import List, Dict, Any, Optional
 from dataclasses import dataclass, field
 from enum import Enum
 import hashlib
-import numpy as np # pyright: ignore[reportMissingImports]
+import numpy as np
 from collections import deque
 import time
 import os
