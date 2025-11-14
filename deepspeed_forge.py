@@ -1,6 +1,6 @@
 # DeepSpeed Integration Core (New: deepspeed_forge.py – Save & Fuse to hyperspeed_optimization.py)
 try:
-    import deepspeed as ds
+    import deepspeed as ds # pyright: ignore[reportMissingImports]
     import torch
     DEEPSPEED_AVAILABLE = True
 except ImportError:
